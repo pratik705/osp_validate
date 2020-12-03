@@ -54,12 +54,13 @@ resource "openstack_compute_instance_v2" "instance_i1_volume" {
 
 resource "openstack_networking_floatingip_v2" "fip_1" {
   pool = module.neutron.floating_network_name
+  count = var.instance_count
 }
 
 resource "openstack_compute_floatingip_associate_v2" "fip_image" {
-  floating_ip = local.floating_ip
-  instance_id = openstack_compute_instance_v2.instance_i1_image[0].id
-  count       = var.boot_from_volume ? 0 : 1
+  floating_ip = openstack_networking_floatingip_v2.fip_1[count.index].address
+  instance_id = openstack_compute_instance_v2.instance_i1_image[count.index].id
+  count       = var.boot_from_volume ? 0 : var.instance_count
 }
 
 resource "openstack_compute_floatingip_associate_v2" "fip_volume" {
