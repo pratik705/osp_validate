@@ -1,4 +1,3 @@
-/*
 output "instance_id" {
   value = module.nova.instance_id
 }
@@ -10,4 +9,3 @@ output "instance_floating_ip" {
 output "instance_ssh_user" {
   value = module.nova.instance_ssh_user
 }
-*/
