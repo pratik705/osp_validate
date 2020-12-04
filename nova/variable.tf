@@ -73,6 +73,6 @@ variable "az_host" {
 
 variable "instance_count" {
   description = "Number of instances to spawn"
-  default = 1
-  type = number
+  default     = 1
+  type        = number
 }

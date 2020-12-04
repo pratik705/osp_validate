@@ -76,12 +76,12 @@ variable "az_host" {
 
 variable "instance_count" {
   description = "Number of instances to spawn"
-  default = 1
-  type = number
+  default     = 1
+  type        = number
 }
 
 variable "volume_count" {
-   description = "Number of volumes"
-   default = 1
-   type = number
+  description = "Number of volumes"
+  default     = 1
+  type        = number
 }

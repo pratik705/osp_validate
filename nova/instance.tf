@@ -8,11 +8,11 @@ module "neutron" {
 module "cinder" {
   source           = "../cinder"
   boot_from_volume = var.boot_from_volume
-  prefix = var.prefix
-  random_id = var.random_id
-  volume_size = var.volume_size
-  volume_type = var.volume_type
-  volume_count = var.instance_count
+  prefix           = var.prefix
+  random_id        = var.random_id
+  volume_size      = var.volume_size
+  volume_type      = var.volume_type
+  volume_count     = var.instance_count
 }
 locals {
   instance_name = "${var.prefix}_instance_${var.random_id}"
@@ -53,7 +53,7 @@ resource "openstack_compute_instance_v2" "instance_i1_volume" {
 }
 
 resource "openstack_networking_floatingip_v2" "fip_1" {
-  pool = module.neutron.floating_network_name
+  pool  = module.neutron.floating_network_name
   count = var.instance_count
 }
 
