@@ -79,3 +79,9 @@ variable "instance_count" {
   default = 1
   type = number
 }
+
+variable "volume_count" {
+   description = "Number of volumes"
+   default = 1
+   type = number
+}
