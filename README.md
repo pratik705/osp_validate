@@ -36,6 +36,7 @@ $ cd osp_validate
 | image_user_name   | Image user name to login the instance                                          | centos           |No         |
 | boot_from_volume  | Boot the instance from volume                                                  | true             |No         |
 | ticket_id         | Ticket ID to append to the OSP resource                                        | 201120-05552     |No         |
+| instance_count    | Number of instances to boot                                                    | 1                |No         |
 | prefix            | Prefix to the OSP resource                                                     | rax              |No         |
 | az_host           | The compute node where you want to spawn an instance.<br>Format: "<availability_zone:compute_node>"   | null             |No        |
 | volume_size       | Size(in GB) of the cinder volume to be created                                 | 10               |No         |
@@ -46,6 +47,11 @@ $ cd osp_validate
 $ terraform init
 $ terraform plan
 $ terraform apply
+```
+
+- Show instance details(after `terraform apply`):
+```
+$ terraform output
 ```
 
 - Destroy OpenStack resources:
