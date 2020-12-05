@@ -76,3 +76,9 @@ variable "instance_count" {
   default     = 1
   type        = number
 }
+
+variable "unique_host" {
+  description = "Unique host to boot an instance. NOTE: Instance count must match to the number of hosts defined in 'az_host'"
+  default = false
+  type = bool
+}

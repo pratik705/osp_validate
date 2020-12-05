@@ -38,10 +38,14 @@ instance_count   = 1
 ## Image user name to login the instance. Default: centos
 # image_user_name: "centos"
 
+## Spawn instance on the unique host.
+## NOTE: Instance count must match to the number of hosts defined in "az_host"
+unique_host = true
+
 ## Specify the compute node where you want to spawn an instance.
 ## Format: "<availability_zone:compute_node>"
 ## Default: null
-# az_host = "nova:compute01-617163.localdomain"
+# az_host = ["nova:compute01-617163.localdomain"]
 
 ## Prefix to the OSP resource. Default: rax
 # prefix = "rax"

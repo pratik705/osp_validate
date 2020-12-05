@@ -24,7 +24,7 @@ resource "openstack_compute_instance_v2" "instance_i1_image" {
   flavor_id         = openstack_compute_flavor_v2.compute_flavor.id
   key_pair          = openstack_compute_keypair_v2.keypair_k1.id
   security_groups   = [module.neutron.security_group_id]
-  availability_zone = var.az_host
+  availability_zone = (var.unique_host && (length(var.instance_count) == length(var.az_host))) ? var.az_host[count.index] : var.az_host
   network {
     uuid = module.neutron.internal_network_id
   }
