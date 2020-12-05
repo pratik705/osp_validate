@@ -9,4 +9,5 @@ module "nova" {
   volume_size      = var.volume_size
   az_host          = var.az_host
   random_id        = var.ticket_id
+  instance_count   = var.instance_count
 }

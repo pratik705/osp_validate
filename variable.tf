@@ -73,3 +73,15 @@ variable "az_host" {
   default     = null
   type        = string
 }
+
+variable "instance_count" {
+  description = "Number of instances to spawn"
+  default     = 1
+  type        = number
+}
+
+variable "volume_count" {
+  description = "Number of volumes"
+  default     = 1
+  type        = number
+}
