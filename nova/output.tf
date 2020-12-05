@@ -3,7 +3,8 @@ output "instance_id" {
 }
 
 output "instance_floating_ip" {
-  value = openstack_networking_floatingip_v2.fip_1[*].address
+  value = formatlist("%s = %s", openstack_compute_instance_v2.instance_i1_volume[*].name, openstack_networking_floatingip_v2.fip_1[*].address)
+
 }
 
 output "instance_ssh_user" {
