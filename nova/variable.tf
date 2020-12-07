@@ -32,19 +32,19 @@ variable "ssh_private_key" {
 
 variable "ram" {
   description = "The amount of RAM to use, in megabytes"
-  default     = 30000
+  default     = 2500
   type        = number
 }
 
 variable "disk" {
   description = "The amount of disk space in gigabytes to use for the root (/) partition"
-  default     = 50
+  default     = 20
   type        = number
 }
 
 variable "vcpus" {
   description = "The number of virtual CPUs to use"
-  default     = 20
+  default     = 2
   type        = number
 }
 
@@ -68,11 +68,9 @@ variable "volume_type" {
 variable "az_host" {
   description = "Compute host to spawn an instance. Format: az:host"
   default     = null
-  type        = string
 }
 
 variable "instance_count" {
   description = "Number of instances to spawn"
   default     = 1
-  type        = number
 }

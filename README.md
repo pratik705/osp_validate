@@ -38,7 +38,7 @@ $ cd osp_validate
 | ticket_id         | Ticket ID to append to the OSP resource                                        | 201120-05552     |No         |
 | instance_count    | Number of instances to boot                                                    | 1                |No         |
 | prefix            | Prefix to the OSP resource                                                     | rax              |No         |
-| az_host           | The compute node where you want to spawn an instance.<br>Format: "<availability_zone:compute_node>"   | null             |No        |
+| az_host           | The compute node where you want to spawn an instance.<br>Format: `["<availability_zone:compute_node>"]`<br>**NOTE:**<br>&nbsp;&nbsp;&nbsp;- If `az_host` is commented(disabled) and `instance_count => 1` then, nova-scheduler will select the compute hosts.<br>&nbsp;&nbsp;&nbsp; - For **1-1 mapping of the instance and host**, the `instance_count` variable value should match to the number of hosts in `az_host` variable. <br> &nbsp;&nbsp;&nbsp; - If `instance_count` contains higher count than the hosts specified in the `az_host`, nova will try to spawn instances on the first compute host from the `az_host` variable.    | null             |No        |
 | volume_size       | Size(in GB) of the cinder volume to be created                                 | 10               |No         |
 | volume_type       | Cinder volume type to create volume on specific backend                        | null             |No         |
 
