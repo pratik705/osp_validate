@@ -52,8 +52,22 @@ $ terraform apply
 - Show instance details(after `terraform apply`):
 ```
 $ terraform output
+``` 
+- Sample output:
 ```
-
+$ terraform output
+instance_id = [
+  "51a4158a-6e09-4cb3-8067-1dd11022fcf5",
+  "157bd9d5-6f09-4d55-9175-d97db38ae912",
+  "c55cc40d-0e2f-448d-936e-fff4e66a7642",
+]
+instance_name-floating_ip = [
+  "rax_instance_201120-05558_0 = 172.23.232.164",
+  "rax_instance_201120-05558_1 = 172.23.232.134",
+  "rax_instance_201120-05558_2 = 172.23.232.121",
+]
+instance_ssh_user = centos
+```
 - Destroy OpenStack resources:
 ```
 $ terraform destroy
