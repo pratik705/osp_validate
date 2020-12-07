@@ -77,4 +77,6 @@ $ terraform destroy
 ## Notes:
 - If `boot_from_volume` is set to `false` then, instance will be created with nova ephemeral disk and cinder volume will be attached to the instance. The volume will be formated using `xfs` filesystem and mounted to `/mnt`. Further test file will be created to validate if the volume is writable.
 - Once `terraform apply` is completed, you can access the instance using username and instance floating IP from the output.
-
+---
+## Demo:
+[![asciicast](https://asciinema.org/a/CF7p4zGNON6PiduhkS7BcCXNy.svg)](https://asciinema.org/a/CF7p4zGNON6PiduhkS7BcCXNy)
