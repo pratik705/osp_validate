@@ -38,14 +38,18 @@ instance_count   = 1
 ## Image user name to login the instance. Default: centos
 # image_user_name: "centos"
 
-## Spawn instance on the unique host.
-## NOTE: Instance count must match to the number of hosts defined in "az_host"
-unique_host = true
-
-## Specify the compute node where you want to spawn an instance.
+## Specify the compute node[s] where you want to spawn an instance/instances in the list format.
 ## Format: "<availability_zone:compute_node>"
 ## Default: null
-# az_host = ["nova:compute01-617163.localdomain"]
+## NOTE:
+##   - If "az_host" is commented(disabled) and "instance_count" => 1 then, nova-scheduler will select
+##     the compute hosts.
+##   - For 1-1 mapping of the instances and host, the "instance_count" variable value should match to the
+##     number of hosts in "az_host" variable.
+##   - If "instance_count contains higher count than the host specified in the "az_host", nova will
+##     try to spawn instances on the first compute host from the "az_host" variable.
+
+# az_host = ["nova:compute01-617163.localdomain", "compute03-716198.localdomain"]
 
 ## Prefix to the OSP resource. Default: rax
 # prefix = "rax"

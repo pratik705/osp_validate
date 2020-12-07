@@ -26,7 +26,7 @@ resource "openstack_compute_instance_v2" "instance_i1_image" {
   flavor_id         = openstack_compute_flavor_v2.compute_flavor.id
   key_pair          = openstack_compute_keypair_v2.keypair_k1.id
   security_groups   = [module.neutron.security_group_id]
-  availability_zone = local.unique_host  ? var.az_host[count.index] : (local.single_host ? var.az_host[0] : null)
+  availability_zone = local.unique_host ? var.az_host[count.index] : (local.single_host ? var.az_host[0] : null)
   network {
     uuid = module.neutron.internal_network_id
   }
@@ -38,7 +38,7 @@ resource "openstack_compute_instance_v2" "instance_i1_volume" {
   flavor_id         = openstack_compute_flavor_v2.compute_flavor.id
   key_pair          = openstack_compute_keypair_v2.keypair_k1.id
   security_groups   = [module.neutron.security_group_id]
-  availability_zone = local.unique_host  ? var.az_host[count.index] : (local.single_host ? var.az_host[0] : null)
+  availability_zone = local.unique_host ? var.az_host[count.index] : (local.single_host ? var.az_host[0] : null)
 
   network {
     uuid = module.neutron.internal_network_id

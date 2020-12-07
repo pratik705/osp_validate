@@ -70,7 +70,7 @@ variable "volume_size" {
 
 variable "az_host" {
   description = "Compute host to spawn an instance. Format: az:host"
-  default = null
+  default     = null
 }
 
 variable "instance_count" {
