@@ -70,24 +70,16 @@ variable "volume_size" {
 
 variable "az_host" {
   description = "Compute host to spawn an instance. Format: az:host"
-  default     = null
-  type        = string
+  default = null
 }
 
 variable "instance_count" {
   description = "Number of instances to spawn"
   default     = 1
-  type        = number
 }
 
 variable "volume_count" {
   description = "Number of volumes"
   default     = 1
   type        = number
-}
-
-variable "unique_host" {
-  description = "Unique host to boot an instance. NOTE: Instance count must match to the number of hosts defined in 'az_host'"
-  default = false
-  type = bool
 }
