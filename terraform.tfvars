@@ -11,9 +11,6 @@ instance_count   = 1
 ## Below are the extra parameters which you can override as per the requirement
 ## In order to override the parameter, uncomment and specify the value
 
-## Tenant/project ID in which resource should be created
-# tenant_id = "bbd381a60b044783a32887030e9c6fbe"
-
 ## Ticket ID to append to the OSP resource. Default: 78293289
 # ticket_id = "201120-05552"
 
