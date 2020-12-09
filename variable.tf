@@ -1,28 +1,3 @@
-variable "osp_auth_url" {
-  description = "OSP authentication URL"
-  type        = string
-}
-
-variable "osp_region" {
-  description = "OSP region"
-  type        = string
-}
-
-variable "osp_user_name" {
-  description = "User name to use for OSP authentication"
-  type        = string
-}
-
-variable "osp_user_password" {
-  description = "User password to use for OSP authentication"
-  type        = string
-}
-
-variable "tenant_id" {
-  description = "OSP project to use"
-  type        = string
-}
-
 variable "ticket_id" {
   description = "Random ID / ticket ID to append to the OSP resource"
   default     = "201120-05552"

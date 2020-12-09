@@ -1,10 +1,3 @@
-## OpenStack environment details for authentication
-osp_auth_url      = "<OS_AUTH_URL>"
-osp_region        = "<OS_REGION_NAME>"
-osp_user_name     = "<OS_USERNAME>"
-osp_user_password = "<OS_PASSWORD>"
-tenant_id         = "<OS_PROJECT_ID>"
-
 ## OpenStack resource details
 image_id        = "<GLANCE_IMAGE_ID>"
 image_user_name = "<GLANCE_IMAGE_USER_NAME>"

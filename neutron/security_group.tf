@@ -5,5 +5,4 @@ locals {
 resource "openstack_networking_secgroup_v2" "sec_group" {
   name        = local.sec_group_name
   description = var.sec_group_description
-  tenant_id   = var.tenant_id
 }

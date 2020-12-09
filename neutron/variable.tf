@@ -12,9 +12,6 @@ variable "network_cidr" {
   default = "192.168.100.0/24"
 }
 
-variable "tenant_id" {
-}
-
 variable "sec_group_description" {
   type    = string
   default = "Security group"

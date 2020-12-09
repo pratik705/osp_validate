@@ -8,10 +8,6 @@ variable "random_id" {
   type        = string
 }
 
-variable "tenant_id" {
-  description = "OSP project to use"
-}
-
 variable "image_id" {
   description = "Glance image to use to boot the instance"
 }
