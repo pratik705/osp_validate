@@ -1,6 +1,5 @@
 module "neutron" {
   source    = "../neutron"
-  tenant_id = var.tenant_id
   prefix    = var.prefix
   random_id = var.random_id
 }

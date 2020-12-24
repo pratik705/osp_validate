@@ -8,5 +8,4 @@ data "openstack_networking_network_v2" "get_external_network" {
 
 resource "openstack_networking_network_v2" "internal_network" {
   name      = local.network_name
-  tenant_id = var.tenant_id
 }

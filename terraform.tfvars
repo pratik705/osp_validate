@@ -1,10 +1,3 @@
-## OpenStack environment details for authentication
-osp_auth_url      = "<OS_AUTH_URL>"
-osp_region        = "<OS_REGION_NAME>"
-osp_user_name     = "<OS_USERNAME>"
-osp_user_password = "<OS_PASSWORD>"
-tenant_id         = "<OS_PROJECT_ID>"
-
 ## OpenStack resource details
 image_id        = "<GLANCE_IMAGE_ID>"
 image_user_name = "<GLANCE_IMAGE_USER_NAME>"
@@ -17,9 +10,6 @@ instance_count   = 1
 
 ## Below are the extra parameters which you can override as per the requirement
 ## In order to override the parameter, uncomment and specify the value
-
-## Tenant/project ID in which resource should be created
-# tenant_id = "bbd381a60b044783a32887030e9c6fbe"
 
 ## Ticket ID to append to the OSP resource. Default: 78293289
 # ticket_id = "201120-05552"
