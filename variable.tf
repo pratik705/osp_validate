@@ -58,3 +58,8 @@ variable "volume_count" {
   default     = 1
   type        = number
 }
+
+variable "external_network" {
+  description = "External network name"
+  default = null
+}

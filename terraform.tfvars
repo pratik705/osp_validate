@@ -7,6 +7,7 @@ ssh_private_key = "<SSH_PRIVATE_KEY_PATH>"
 boot_from_volume = true
 ticket_id        = "201120-05552"
 instance_count   = 1
+external_network = null
 
 ## Below are the extra parameters which you can override as per the requirement
 ## In order to override the parameter, uncomment and specify the value

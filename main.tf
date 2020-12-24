@@ -9,4 +9,5 @@ module "nova" {
   az_host          = var.az_host
   random_id        = var.ticket_id
   instance_count   = var.instance_count
+  external_network = var.external_network
 }

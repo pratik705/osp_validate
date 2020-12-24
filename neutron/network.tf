@@ -3,7 +3,8 @@ locals {
 }
 
 data "openstack_networking_network_v2" "get_external_network" {
-  external = true
+  name = var.external_network
+  count = var.external_network != null ? 1 : 0
 }
 
 resource "openstack_networking_network_v2" "internal_network" {
