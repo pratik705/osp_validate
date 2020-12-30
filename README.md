@@ -39,7 +39,7 @@ $ cd osp_validate
 | volume_size       | Size(in GB) of the cinder volume to be created                                 | 10               |No         |
 | volume_type       | Cinder volume type to create volume on specific backend                        | null             |No         |
 
-- Create OpenStack resources:
+- Create OpenStack resources: 
 ```
 [stack@osp osp_validate]$ source ~/openrc
 (openrc) [stack@osp osp_validate]$ terraform init
