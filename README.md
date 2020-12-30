@@ -30,6 +30,7 @@ $ cd osp_validate
 | ssh_public_key    | Absolute path of the ssh public key to create keypair                          | None             |Yes        |
 | ssh_private_key   | Absolute path of the ssh private key to access the instance once its created   | None             |Yes        |
 | image_user_name   | Image user name to login the instance                                          | centos           |No         |
+| external_network  | Name of the external/floating network to which instance will be attached<br>**NOTE:**<br>&nbsp;&nbsp;&nbsp;- If unset, instance will be created without floating IP.      | None             |No         |
 | boot_from_volume  | Boot the instance from volume                                                  | true             |No         |
 | ticket_id         | Ticket ID to append to the OSP resource                                        | 201120-05552     |No         |
 | instance_count    | Number of instances to boot                                                    | 1                |No         |

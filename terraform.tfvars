@@ -53,3 +53,6 @@ external_network = null
 
 ## Boot the instance from volume. Default: true
 # boot_from_volume = true
+
+# Name of the external/floating network to which instance will be attached. Default: null
+# external_network = "floating-external"
