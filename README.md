@@ -47,6 +47,7 @@ $ cd osp_validate
 (openrc) [stack@osp osp_validate]$ terraform apply
 ```
 
+- 
 - Show instance details(after `terraform apply`):
 ```
 (openrc) [stack@osp osp_validate]$ terraform output
