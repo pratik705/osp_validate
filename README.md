@@ -3,7 +3,7 @@ Validate the OSP environment by creating a test resources
 
 One can use this terraform code to validate the working of existing OpenStack environment. The state of the OpenStack environment will be validated by creating following OpenStack resources:
 
-  - Neutron network
+  - Neutron network 
   - Neutron subnet
   - Neutron router
   - Keypair
@@ -39,7 +39,7 @@ $ cd osp_validate
 | volume_size       | Size(in GB) of the cinder volume to be created                                 | 10               |No         |
 | volume_type       | Cinder volume type to create volume on specific backend                        | null             |No         |
 
-- Create OpenStack resources:
+- Create OpenStack resources: 
 ```
 [stack@osp osp_validate]$ source ~/openrc
 (openrc) [stack@osp osp_validate]$ terraform init
