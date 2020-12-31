@@ -10,7 +10,7 @@ variable "random_id" {
 
 variable "external_network" {
   description = "External network name"
-  default = null
+  default     = null
 }
 
 variable "network_cidr" {
