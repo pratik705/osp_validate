@@ -3,7 +3,7 @@ Validate the OSP environment by creating a test resources
 
 One can use this terraform code to validate the working of existing OpenStack environment. The state of the OpenStack environment will be validated by creating following OpenStack resources:
 
-  - Neutron network
+  - Neutron network 
   - Neutron subnet
   - Neutron router
   - Keypair
@@ -30,6 +30,7 @@ $ cd osp_validate
 | ssh_public_key    | Absolute path of the ssh public key to create keypair                          | None             |Yes        |
 | ssh_private_key   | Absolute path of the ssh private key to access the instance once its created   | None             |Yes        |
 | image_user_name   | Image user name to login the instance                                          | centos           |No         |
+| external_network  | Name of the external/floating network to which instance will be attached<br>**NOTE:**<br>&nbsp;&nbsp;&nbsp;- If unset, instance will be created without floating IP.      | None             |No         |
 | boot_from_volume  | Boot the instance from volume                                                  | true             |No         |
 | ticket_id         | Ticket ID to append to the OSP resource                                        | 201120-05552     |No         |
 | instance_count    | Number of instances to boot                                                    | 1                |No         |
@@ -38,7 +39,7 @@ $ cd osp_validate
 | volume_size       | Size(in GB) of the cinder volume to be created                                 | 10               |No         |
 | volume_type       | Cinder volume type to create volume on specific backend                        | null             |No         |
 
-- Create OpenStack resources:
+- Create OpenStack resources: 
 ```
 [stack@osp osp_validate]$ source ~/openrc
 (openrc) [stack@osp osp_validate]$ terraform init

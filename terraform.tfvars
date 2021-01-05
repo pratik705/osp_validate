@@ -7,6 +7,7 @@ ssh_private_key = "<SSH_PRIVATE_KEY_PATH>"
 boot_from_volume = true
 ticket_id        = "201120-05552"
 instance_count   = 1
+external_network = null
 
 ## Below are the extra parameters which you can override as per the requirement
 ## In order to override the parameter, uncomment and specify the value
@@ -39,12 +40,12 @@ instance_count   = 1
 ##   - If "instance_count contains higher count than the host specified in the "az_host", nova will
 ##     try to spawn instances on the first compute host from the "az_host" variable.
 
-# az_host = ["nova:compute01-617163.localdomain", "compute03-716198.localdomain"]
+# az_host = ["nova:compute01-617163.localdomain", "nova:compute03-716198.localdomain"]
 
 ## Prefix to the OSP resource. Default: rax
 # prefix = "rax"
 
-## Cinder volume size. Default: 10GB
+## Cinder volume size in GB. Default: 10
 # volume_size = 10
 
 ## Cinder volume type. Default: null
@@ -52,3 +53,6 @@ instance_count   = 1
 
 ## Boot the instance from volume. Default: true
 # boot_from_volume = true
+
+# Name of the external/floating network to which instance will be attached. Default: null
+# external_network = "floating-external"

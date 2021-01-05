@@ -1,7 +1,8 @@
 module "neutron" {
-  source    = "../neutron"
-  prefix    = var.prefix
-  random_id = var.random_id
+  source           = "../neutron"
+  prefix           = var.prefix
+  random_id        = var.random_id
+  external_network = var.external_network
 }
 
 module "cinder" {
@@ -54,40 +55,43 @@ resource "openstack_compute_instance_v2" "instance_i1_volume" {
 }
 
 resource "openstack_networking_floatingip_v2" "fip_1" {
-  pool  = module.neutron.floating_network_name
-  count = var.instance_count
+  pool  = var.external_network != null ? var.external_network : null
+  count = var.external_network != null ? var.instance_count : 0
 }
 
 resource "openstack_compute_floatingip_associate_v2" "fip_image" {
   floating_ip = openstack_networking_floatingip_v2.fip_1[count.index].address
   instance_id = openstack_compute_instance_v2.instance_i1_image[count.index].id
-  count       = var.boot_from_volume ? 0 : var.instance_count
+  count       = var.external_network != null ? (var.boot_from_volume ? 0 : var.instance_count) : 0
 }
 
 resource "openstack_compute_floatingip_associate_v2" "fip_volume" {
   floating_ip = openstack_networking_floatingip_v2.fip_1[count.index].address
   instance_id = openstack_compute_instance_v2.instance_i1_volume[count.index].id
-  count       = var.boot_from_volume ? var.instance_count : 0
+  count       = var.external_network != null ? (var.boot_from_volume ? var.instance_count : 0) : 0
 }
 
 resource "openstack_compute_volume_attach_v2" "attach_volume" {
   instance_id = openstack_compute_instance_v2.instance_i1_image[count.index].id
   volume_id   = module.cinder.volume_id[count.index]
   count       = var.boot_from_volume ? 0 : var.instance_count
+}
+
+resource "null_resource" "create_fs" {
+  connection {
+    timeout     = "2m"
+    host        = openstack_networking_floatingip_v2.fip_1[count.index].address
+    user        = var.image_user_name
+    private_key = var.ssh_private_key != null ? file(var.ssh_private_key) : null
+  }
   provisioner "remote-exec" {
     on_failure = continue
     inline = [
       "sudo mkfs.xfs /dev/vdb",
       "sudo mount /dev/vdb /mnt",
-      "sudo touch /mnt/test_file.txt"
+      "echo 'This is a test file' | sudo  tee /mnt/test_file.txt"
     ]
-
-    connection {
-      timeout     = "2m"
-      host        = openstack_networking_floatingip_v2.fip_1[count.index].address
-      user        = var.image_user_name
-      private_key = var.ssh_private_key != null ? file(var.ssh_private_key) : null
-    }
   }
+  count      = var.boot_from_volume ? 0 : (var.external_network != null ? 1 : 0)
+  depends_on = [openstack_compute_volume_attach_v2.attach_volume]
 }
-

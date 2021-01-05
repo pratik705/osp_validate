@@ -7,13 +7,9 @@ output "internal_subnet_id" {
 }
 
 output "router_id" {
-  value = openstack_networking_router_v2.router.id
+  value = var.external_network != null ? openstack_networking_router_v2.router[0].id : null
 }
 
 output "security_group_id" {
   value = openstack_networking_secgroup_v2.sec_group.id
-}
-
-output "floating_network_name" {
-  value = data.openstack_networking_network_v2.get_external_network.name
 }

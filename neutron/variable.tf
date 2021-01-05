@@ -8,6 +8,11 @@ variable "random_id" {
   type        = string
 }
 
+variable "external_network" {
+  description = "External network name"
+  default     = null
+}
+
 variable "network_cidr" {
   default = "192.168.100.0/24"
 }

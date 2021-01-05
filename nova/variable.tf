@@ -70,3 +70,8 @@ variable "instance_count" {
   description = "Number of instances to spawn"
   default     = 1
 }
+
+variable "external_network" {
+  description = "External network name"
+  default     = null
+}
