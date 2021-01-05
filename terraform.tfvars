@@ -40,12 +40,12 @@ external_network = null
 ##   - If "instance_count contains higher count than the host specified in the "az_host", nova will
 ##     try to spawn instances on the first compute host from the "az_host" variable.
 
-# az_host = ["nova:compute01-617163.localdomain", "compute03-716198.localdomain"]
+# az_host = ["nova:compute01-617163.localdomain", "nova:compute03-716198.localdomain"]
 
 ## Prefix to the OSP resource. Default: rax
 # prefix = "rax"
 
-## Cinder volume size. Default: 10GB
+## Cinder volume size in GB. Default: 10
 # volume_size = 10
 
 ## Cinder volume type. Default: null
